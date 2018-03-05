@@ -1,0 +1,67 @@
+Como minar MODERCASH
+Para minar esta moneda necesitas un PC de doble núcleo o una tarjeta gráfica AMD/Nvidia
+para las tarjetas gráficas existen estos dos softwares(a veces dan errores con los drivers)
+Para tarjetas Nvidia
+CCminer 7.8 (Alexis) : https://github.com/nemosminer/ccminer-Alexis78/releases
+CCminer 8.15 (KlausT) : https://github.com/KlausT/ccminer/releases
+CCminer 2.2.3 (tpruvot) : https://github.com/tpruvot/ccminer/releases
+
+Crea un nuevo archivo de inicio ("moderminado.bat" usando notepad o notepad ++ en windows) y pegue el siguiente comando en él:
+ccminer-x64 -a nist5 -o stratum+tcp://127.0.0.1:11935 -u usuario -p contraseña --cpu-priority=3 (esta conf es para minar con CPU)
+AMD
+SGMiner : https://github.com/nicehash/sgminer/releases/
+Gateless Gate: https://github.com/zawawawa/gatelessgate/releases/
+
+En SGminer es lo mismo que antes, creamos un archivo .bat y copia/pega lo siguiente:
+{
+  "pools": [
+    {
+      "name": "moder",
+      "url": "http://127.0.0.1:11935",
+      "user": "El mismo que tengas en el .conf de la carpeta MODERCASH, situada en user/APP/roaming",
+      "pass": "El mismo password que tengas en el .conf de la carpeta MODERCASH, situada en bla bla bla",
+      "no-extranonce": true
+    }
+  ],
+  "profiles": [],
+  "failover-only": true,
+  "algorithm": "talkcoin-mod",
+  "device": "all",
+  "intensity": "9,9",
+  "temp-cutoff": "95,95",
+  "temp-overheat": "85,85",
+  "temp-target": "80,80",
+  "gpu-memdiff": "0,0",
+  "shares": "0",
+  "kernel-path": "/usr/local/bin",
+  "api-mcast-port": "4028",
+  "api-port": "4028",
+  "expiry": "28",
+  "failover-switch-delay": "60",
+  "gpu-dyninterval": "7",
+  "gpu-platform": "-1",
+  "hamsi-expand-big": "4",
+  "keccak-unroll": "0",
+  "log": "5",
+  "no-pool-disable": true,
+  "no-client-reconnect": true,
+  "queue": "1",
+  "scan-time": "7",
+  "tcp-keepalive": "30",
+  "temp-hysteresis": "3",
+  "watchpool-refresh": "30"
+}
+USER/APP/ROAMIN/MODERCASH:
+En esta carpeta se encuentran los archivos que hacen funcionar el monedero
+WALLET.dat quizás el mas importante, ya que guarda el saldo que dispongamos
+PEERS.dat Controla las comunicaciones.
+MODERCASH.CONF Este archivo controla las conexiones manuales y habilita la funcion de minado "solomining",
+aparte se pueden poner nodos amigos para reforzar la conexión
+Su estructura es la siguiente:
+rpcuser=Elquequieras
+rpcpassword=elquequierasylargocomoelinfiernonopongaseste
+rpcport=11935
+port=11936
+Addnode=176.86.247.139
+server=1
+liste=1
